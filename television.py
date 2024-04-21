@@ -5,12 +5,15 @@ class Television:
     MAX_CHANNEL = 3
 
     def __init__(self) -> None:
+        """
+        Constant variable names are stored here
+        """
         self.__status = False
         self.__muted = False
         self.__volume = Television.MIN_VOLUME
         self.__channel = Television.MIN_CHANNEL
 
-    def power(self):
+    def power(self) -> None:
         """
         Method to turn off the tv
         """
@@ -19,7 +22,7 @@ class Television:
         else:
             self.__status = False
 
-    def mute(self):
+    def mute(self) -> None:
         """
         Method to mute the tv volume
         """
@@ -29,21 +32,21 @@ class Television:
                 self.__volume = Television.MIN_VOLUME
 
 
-    def channel_up(self):
+    def channel_up(self) -> None:
         """
         Method to increase the tv channel
         """
         if self.__status:
             self.__channel = (self.__channel + 1) % (Television.MAX_CHANNEL + 1)
 
-    def channel_down(self):
+    def channel_down(self) -> None:
         """
         Method to decrease the tv channel
         """
         if self.__status:
             self.__channel = (self.__channel - 1) % (Television.MAX_CHANNEL + 1)
 
-    def volume_up(self):
+    def volume_up(self) -> None:
         """
         Method to increase the tv volume
         """
@@ -55,7 +58,7 @@ class Television:
                 self.__volume += 1
 
 
-    def volume_down(self):
+    def volume_down(self) -> None:
         """
         Method to decrease the tv volume
         """
