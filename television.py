@@ -10,28 +10,28 @@ class Television:
         self.__volume = Television.MIN_VOLUME
         self.__channel = Television.MIN_CHANNEL
 
-    def power(self):
+    def power(self) -> None:
         if not self.__status:
             self.__status = True
         else:
             self.__status = False
 
-    def mute(self):
+    def mute(self) -> None:
         if self.__status:
             self.__muted = not self.__muted
             if self.__muted:
                 self.__volume = Television.MIN_VOLUME
 
 
-    def channel_up(self):
+    def channel_up(self) -> None:
         if self.__status:
             self.__channel = (self.__channel + 1) % (Television.MAX_CHANNEL + 1)
 
-    def channel_down(self):
+    def channel_down(self) -> None:
         if self.__status:
             self.__channel = (self.__channel - 1) % (Television.MAX_CHANNEL + 1)
 
-    def volume_up(self):
+    def volume_up(self) -> None:
         if self.__status:
             if self.__muted:
                 self.__volume = Television.MAX_VOLUME
@@ -40,7 +40,7 @@ class Television:
                 self.__volume += 1
 
 
-    def volume_down(self):
+    def volume_down(self) -> None:
         if self.__status:
             if self.__muted:
                 self.__volume = 1
@@ -56,14 +56,3 @@ class Television:
                 return f'Power = True, Channel = {self.__channel}, Volume = {self.__volume}'
         else:
             return f'Power = False, Channel = {self.__channel}, Volume = {self.__volume}'
-
-
-
-# Channel Logic
-#####################################################
-# Default - NFL - Cartoon Network - Discovery Channel
-#    0       1           2                  3
-
-# Volume Logic
-######################
-#    0       1       2
